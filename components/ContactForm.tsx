@@ -24,22 +24,39 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
 
     setStatus('submitting');
     
-    // Simulate API call
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', phone: '', message: '' });
-      
-      // Reset status after a few seconds
-      setTimeout(() => {
+    try {
+      const response = await fetch("https://formspree.io/f/mkoooawa", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', phone: '', message: '' });
+        
+        // Reset status after a few seconds
+        setTimeout(() => {
+          setStatus('idle');
+        }, 5000);
+      } else {
+        alert("There was a problem submitting your form. Please try calling us.");
         setStatus('idle');
-      }, 5000);
-    }, 1500);
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("There was a problem submitting your form. Please try calling us.");
+      setStatus('idle');
+    }
   };
 
   return (
