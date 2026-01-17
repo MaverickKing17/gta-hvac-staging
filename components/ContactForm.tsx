@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Loader2, CheckCircle } from 'lucide-react';
 
 interface ContactFormProps {
   prefilledMessage?: string;
@@ -10,6 +11,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
     phone: '',
     message: ''
   });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
   useEffect(() => {
     if (prefilledMessage) {
@@ -20,6 +22,24 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.phone) return;
+
+    setStatus('submitting');
+    
+    // Simulate API call
+    setTimeout(() => {
+      setStatus('success');
+      setFormData({ name: '', phone: '', message: '' });
+      
+      // Reset status after a few seconds
+      setTimeout(() => {
+        setStatus('idle');
+      }, 5000);
+    }, 1500);
   };
 
   return (
@@ -53,7 +73,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
              </div>
            </div>
            <div className="md:w-1/2 p-8 md:p-12">
-             <form className="space-y-4" onSubmit={(e) => e.preventDefault()} aria-label="Contact form">
+             <form className="space-y-4" onSubmit={handleSubmit} aria-label="Contact form">
                <div>
                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
                  <input 
@@ -66,6 +86,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
                     placeholder="Your Name"
                     required
                     aria-required="true"
+                    disabled={status !== 'idle'}
                  />
                </div>
                <div>
@@ -80,6 +101,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
                     placeholder="(555) 555-5555"
                     required
                     aria-required="true"
+                    disabled={status !== 'idle'}
                  />
                </div>
                <div>
@@ -94,15 +116,38 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
                     placeholder="How can we help?"
                     required
                     aria-required="true"
+                    disabled={status !== 'idle'}
                  ></textarea>
                </div>
                <button 
                  type="submit" 
-                 className="w-full bg-brand-red text-white font-bold py-3 px-4 rounded-md hover:bg-brand-dark transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-red shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                 disabled={status !== 'idle'}
+                 className={`w-full font-bold py-3 px-4 rounded-md transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-red shadow-md flex justify-center items-center ${
+                   status === 'success' 
+                    ? 'bg-green-600 text-white cursor-default' 
+                    : 'bg-brand-red text-white hover:bg-brand-dark hover:shadow-lg hover:-translate-y-0.5'
+                 } disabled:opacity-80 disabled:cursor-not-allowed`}
                  aria-label="Submit callback request"
                >
-                 Request Callback
+                 {status === 'submitting' ? (
+                   <>
+                     <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                     Sending Request...
+                   </>
+                 ) : status === 'success' ? (
+                   <>
+                     <CheckCircle className="w-5 h-5 mr-2" />
+                     Request Sent!
+                   </>
+                 ) : (
+                   'Request Callback'
+                 )}
                </button>
+               {status === 'success' && (
+                 <p className="text-green-600 text-center text-sm font-medium mt-2">
+                   Thanks! Raami or the team will be in touch shortly.
+                 </p>
+               )}
              </form>
            </div>
          </div>

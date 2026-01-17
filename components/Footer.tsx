@@ -39,15 +39,15 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Connect</h3>
             <div className="flex space-x-6 mt-4">
-              <a href="#" className="text-gray-400 hover:text-brand-red transition-colors">
+              <a href="#" onClick={(e) => e.preventDefault()} className="text-gray-400 hover:text-brand-red transition-colors">
                 <span className="sr-only">Facebook</span>
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-brand-red transition-colors">
+              <a href="#" onClick={(e) => e.preventDefault()} className="text-gray-400 hover:text-brand-red transition-colors">
                 <span className="sr-only">Instagram</span>
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-brand-red transition-colors">
+              <a href="#" onClick={(e) => e.preventDefault()} className="text-gray-400 hover:text-brand-red transition-colors">
                 <span className="sr-only">Twitter</span>
                 <Twitter className="h-6 w-6" />
               </a>
