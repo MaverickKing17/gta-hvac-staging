@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
             <ul className="mt-4 space-y-4">
               <li><a href="#about" className="text-base text-gray-300 hover:text-white">About Raami</a></li>
-              <li><a href="#" className="text-base text-gray-300 hover:text-white">Testimonials</a></li>
+              <li><a href="#testimonials" className="text-base text-gray-300 hover:text-white">Testimonials</a></li>
               <li><a href="#" className="text-base text-gray-300 hover:text-white">Careers</a></li>
               <li><a href="#contact" className="text-base text-gray-300 hover:text-white">Contact</a></li>
             </ul>
