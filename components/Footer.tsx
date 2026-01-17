@@ -19,35 +19,35 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Services</h3>
             <ul className="mt-4 space-y-4">
-              <li><a href="#services" className="text-base text-gray-300 hover:text-white">Furnace Repair</a></li>
-              <li><a href="#services" className="text-base text-gray-300 hover:text-white">AC Installation</a></li>
-              <li><a href="#services" className="text-base text-gray-300 hover:text-white">Maintenance Plans</a></li>
-              <li><a href="#services" className="text-base text-gray-300 hover:text-white">Emergency Service</a></li>
+              <li><a href="#furnace-repair" className="text-base text-gray-300 hover:text-white transition-colors">Furnace Repair</a></li>
+              <li><a href="#ac-installation" className="text-base text-gray-300 hover:text-white transition-colors">AC Installation</a></li>
+              <li><a href="#maintenance-plans" className="text-base text-gray-300 hover:text-white transition-colors">Maintenance Plans</a></li>
+              <li><a href="#emergency-service" className="text-base text-gray-300 hover:text-white transition-colors">Emergency Service</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
             <ul className="mt-4 space-y-4">
-              <li><a href="#about" className="text-base text-gray-300 hover:text-white">About Raami</a></li>
-              <li><a href="#testimonials" className="text-base text-gray-300 hover:text-white">Testimonials</a></li>
-              <li><a href="#contact" className="text-base text-gray-300 hover:text-white">Careers</a></li>
-              <li><a href="#contact" className="text-base text-gray-300 hover:text-white">Contact</a></li>
+              <li><a href="#about" className="text-base text-gray-300 hover:text-white transition-colors">About Raami</a></li>
+              <li><a href="#testimonials" className="text-base text-gray-300 hover:text-white transition-colors">Testimonials</a></li>
+              <li><a href="#contact" className="text-base text-gray-300 hover:text-white transition-colors">Careers</a></li>
+              <li><a href="#contact" className="text-base text-gray-300 hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Connect</h3>
             <div className="flex space-x-6 mt-4">
-              <a href="#" className="text-gray-400 hover:text-brand-red">
+              <a href="#" className="text-gray-400 hover:text-brand-red transition-colors">
                 <span className="sr-only">Facebook</span>
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-brand-red">
+              <a href="#" className="text-gray-400 hover:text-brand-red transition-colors">
                 <span className="sr-only">Instagram</span>
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-brand-red">
+              <a href="#" className="text-gray-400 hover:text-brand-red transition-colors">
                 <span className="sr-only">Twitter</span>
                 <Twitter className="h-6 w-6" />
               </a>

@@ -4,31 +4,37 @@ import { ServiceItem } from '../types';
 
 const services: ServiceItem[] = [
   {
+    id: 'furnace-repair',
     title: 'Furnace Repair',
     description: 'Diagnosis and repair for all makes and models. We fix ignition issues, blower motors, and thermostats.',
     icon: <Flame className="w-8 h-8 text-brand-red" />
   },
   {
-    title: 'New Installations',
+    id: 'ac-installation',
+    title: 'AC Installation',
     description: 'High-efficiency furnace and AC installations. Upgrade your home comfort with top-tier brands.',
     icon: <Home className="w-8 h-8 text-brand-red" />
   },
   {
-    title: 'AC Maintenance',
+    id: 'maintenance-plans',
+    title: 'Maintenance Plans',
     description: 'Keep your cool in the summer. Annual cleaning, freon checks, and coil inspections.',
     icon: <Wind className="w-8 h-8 text-brand-red" />
   },
   {
+    id: 'emergency-service',
     title: 'Emergency Service',
     description: 'Breakdowns happen at the worst times. We offer rapid response for urgent heating loss.',
     icon: <Wrench className="w-8 h-8 text-brand-red" />
   },
   {
+    id: 'duct-cleaning',
     title: 'Duct Cleaning',
     description: 'Improve air quality and system efficiency by removing dust and debris from your airways.',
     icon: <Settings className="w-8 h-8 text-brand-red" />
   },
   {
+    id: 'humidifiers',
     title: 'Humidifiers',
     description: 'Balance your home humidity for better health and wood floor protection during winter.',
     icon: <ThermometerSun className="w-8 h-8 text-brand-red" />
@@ -51,8 +57,8 @@ const Services: React.FC = () => {
 
         <div className="mt-16">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, index) => (
-              <div key={index} className="pt-6">
+            {services.map((service) => (
+              <div key={service.id} id={service.id} className="pt-6 relative group">
                 <div className="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full hover:shadow-lg transition-shadow duration-300 border border-transparent hover:border-red-100">
                   <div className="-mt-6">
                     <div>
@@ -60,7 +66,7 @@ const Services: React.FC = () => {
                         {service.icon}
                       </span>
                     </div>
-                    <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">{service.title}</h3>
+                    <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight group-hover:text-brand-red transition-colors">{service.title}</h3>
                     <p className="mt-5 text-base text-gray-500">
                       {service.description}
                     </p>
