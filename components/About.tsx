@@ -3,7 +3,7 @@ import { MapPin, Phone, Star } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-16 bg-brand-red text-white overflow-hidden relative">
+    <section id="about" className="py-16 bg-brand-red text-white overflow-hidden relative scroll-mt-20">
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-black via-transparent to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

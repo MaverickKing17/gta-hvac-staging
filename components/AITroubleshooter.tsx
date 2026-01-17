@@ -54,7 +54,7 @@ const AITroubleshooter: React.FC<AITroubleshooterProps> = ({ onBookAppointment }
   };
 
   return (
-    <section id="diagnose" className="py-16 bg-gray-50">
+    <section id="diagnose" className="py-16 bg-gray-50 scroll-mt-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-base text-brand-red font-semibold tracking-wide uppercase">Smart Diagnostics</h2>

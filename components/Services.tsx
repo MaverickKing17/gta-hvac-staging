@@ -43,7 +43,7 @@ const services: ServiceItem[] = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-20 bg-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-base text-brand-red font-semibold tracking-wide uppercase">Our Services</h2>
@@ -58,7 +58,7 @@ const Services: React.FC = () => {
         <div className="mt-16">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <div key={service.id} id={service.id} className="pt-6 relative group">
+              <div key={service.id} id={service.id} className="pt-6 relative group scroll-mt-28">
                 <div className="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full hover:shadow-lg transition-shadow duration-300 border border-transparent hover:border-red-100">
                   <div className="-mt-6">
                     <div>

@@ -23,7 +23,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
   };
 
   return (
-    <section id="contact" className="bg-gray-50 py-16" aria-labelledby="contact-heading">
+    <section id="contact" className="bg-gray-50 py-16 scroll-mt-20" aria-labelledby="contact-heading">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
          <div className="bg-white rounded-2xl shadow-xl overflow-hidden md:flex">
            <div className="md:w-1/2 p-8 md:p-12 bg-gray-900 text-white flex flex-col justify-center">
