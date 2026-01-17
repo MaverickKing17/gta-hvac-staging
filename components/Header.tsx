@@ -7,11 +7,20 @@ const Header: React.FC = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'About Raami', href: '#about' },
-    { name: 'AI Diagnostics', href: '#diagnose' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Services', href: 'services' },
+    { name: 'About Raami', href: 'about' },
+    { name: 'AI Diagnostics', href: 'diagnose' },
+    { name: 'Contact', href: 'contact' },
   ];
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="bg-white sticky top-0 z-50 shadow-md border-b-4 border-brand-red">
@@ -37,7 +46,8 @@ const Header: React.FC = () => {
               {navLinks.map((link) => (
                 <a
                   key={link.name}
-                  href={link.href}
+                  href={`#${link.href}`}
+                  onClick={(e) => handleScroll(e, link.href)}
                   className="text-gray-600 hover:text-brand-red font-medium transition-colors"
                 >
                   {link.name}
@@ -72,9 +82,9 @@ const Header: React.FC = () => {
             {navLinks.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
+                href={`#${link.href}`}
+                onClick={(e) => handleScroll(e, link.href)}
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-red hover:bg-red-50"
-                onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}
               </a>

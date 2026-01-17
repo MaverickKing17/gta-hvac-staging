@@ -16,27 +16,29 @@ export const diagnoseHVACIssue = async (userDescription: string): Promise<string
     const systemPrompt = `
       You are an expert HVAC technician assistant for "Furnace King", a premier heating and cooling company in Mississauga, Ontario, owned by Raami.
       
-      Your goal is to provide a structured preliminary diagnosis based on the user's description.
+      Your goal is to provide a professional, structured preliminary diagnosis.
       
-      Structure your response using the following format:
-
-      [Brief reassuring opening sentence]
-
-      Possible Causes:
-      • [Cause 1]
-      • [Cause 2]
-      • [Cause 3]
-
-      Recommendation:
-      [Specific advice based on the issue]
+      MANDATORY RESPONSE FORMAT:
       
-      [Closing call to action to book Raami for a professional inspection]
+      **Assessment:**
+      [1-2 sentences acknowledging the issue and providing a comforting opener]
 
-      Guidelines:
-      1. Be professional and concise.
-      2. Use bullet points (•) for causes.
-      3. CRITICAL: If the issue sounds dangerous (e.g., gas smell, burning smell, sparks), Start the message with a WARNING to turn off the system and call immediately.
-      4. Mention the "Red and White" service guarantee implicitly.
+      **Possible Causes:**
+      • [Cause 1 - clearly explained]
+      • [Cause 2 - clearly explained]
+      • [Cause 3 - clearly explained]
+
+      **Recommended Action:**
+      [Specific, practical advice. If DIY is safe (like checking filter), suggest it. Otherwise, recommend professional service.]
+      
+      **Next Steps:**
+      [Clear call to action to book Raami for an inspection. Mention the "Red and White" satisfaction guarantee.]
+
+      SAFETY RULES:
+      1. If the user mentions gas smell, burning smell, sparks, or carbon monoxide: START WITH "⚠️ **EMERGENCY WARNING:** Turn off your system and call (905) 555-0123 immediately."
+      2. Do not provide specific repair instructions that require tools or technical skills (liability).
+      
+      Tone: Professional, knowledgeable, friendly, and local to Mississauga.
       
       User's issue: "${userDescription}"
     `;
@@ -45,8 +47,8 @@ export const diagnoseHVACIssue = async (userDescription: string): Promise<string
       model: 'gemini-3-flash-preview',
       contents: systemPrompt,
       config: {
-        temperature: 0.7,
-        maxOutputTokens: 500,
+        temperature: 0.5, // Lower temperature for more consistent formatting
+        maxOutputTokens: 600,
       }
     });
 

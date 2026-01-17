@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                 <a 
                   href="#furnace-repair" 
                   onClick={(e) => handleScroll(e, 'furnace-repair')}
-                  className="text-base text-gray-300 hover:text-white transition-colors"
+                  className="text-base text-gray-300 hover:text-white transition-colors cursor-pointer"
                 >
                   Furnace Repair
                 </a>
@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
                 <a 
                   href="#ac-installation" 
                   onClick={(e) => handleScroll(e, 'ac-installation')}
-                  className="text-base text-gray-300 hover:text-white transition-colors"
+                  className="text-base text-gray-300 hover:text-white transition-colors cursor-pointer"
                 >
                   AC Installation
                 </a>
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
                 <a 
                   href="#maintenance-plans" 
                   onClick={(e) => handleScroll(e, 'maintenance-plans')}
-                  className="text-base text-gray-300 hover:text-white transition-colors"
+                  className="text-base text-gray-300 hover:text-white transition-colors cursor-pointer"
                 >
                   Maintenance Plans
                 </a>
@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
                 <a 
                   href="#emergency-service" 
                   onClick={(e) => handleScroll(e, 'emergency-service')}
-                  className="text-base text-gray-300 hover:text-white transition-colors"
+                  className="text-base text-gray-300 hover:text-white transition-colors cursor-pointer"
                 >
                   Emergency Service
                 </a>
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
                 <a 
                   href="#about" 
                   onClick={(e) => handleScroll(e, 'about')}
-                  className="text-base text-gray-300 hover:text-white transition-colors"
+                  className="text-base text-gray-300 hover:text-white transition-colors cursor-pointer"
                 >
                   About Raami
                 </a>
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
                 <a 
                   href="#testimonials" 
                   onClick={(e) => handleScroll(e, 'testimonials')}
-                  className="text-base text-gray-300 hover:text-white transition-colors"
+                  className="text-base text-gray-300 hover:text-white transition-colors cursor-pointer"
                 >
                   Testimonials
                 </a>
@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
                 <a 
                   href="#contact" 
                   onClick={(e) => handleScroll(e, 'contact')}
-                  className="text-base text-gray-300 hover:text-white transition-colors"
+                  className="text-base text-gray-300 hover:text-white transition-colors cursor-pointer"
                 >
                   Careers
                 </a>
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
                 <a 
                   href="#contact" 
                   onClick={(e) => handleScroll(e, 'contact')}
-                  className="text-base text-gray-300 hover:text-white transition-colors"
+                  className="text-base text-gray-300 hover:text-white transition-colors cursor-pointer"
                 >
                   Contact
                 </a>
