@@ -39,16 +39,31 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Connect</h3>
             <div className="flex space-x-6 mt-4">
-              <a href="#" onClick={(e) => e.preventDefault()} className="text-gray-400 hover:text-brand-red transition-colors">
-                <span className="sr-only">Facebook</span>
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-brand-red transition-colors"
+                aria-label="Visit our Facebook page"
+              >
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="#" onClick={(e) => e.preventDefault()} className="text-gray-400 hover:text-brand-red transition-colors">
-                <span className="sr-only">Instagram</span>
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-brand-red transition-colors"
+                aria-label="Visit our Instagram page"
+              >
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="#" onClick={(e) => e.preventDefault()} className="text-gray-400 hover:text-brand-red transition-colors">
-                <span className="sr-only">Twitter</span>
+              <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-brand-red transition-colors"
+                aria-label="Visit our Twitter page"
+              >
                 <Twitter className="h-6 w-6" />
               </a>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Loader2, CheckCircle } from 'lucide-react';
+import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 
 interface ContactFormProps {
   prefilledMessage?: string;
@@ -11,7 +11,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
     phone: '',
     message: ''
   });
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     if (prefilledMessage) {
@@ -49,13 +49,18 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
           setStatus('idle');
         }, 5000);
       } else {
-        alert("There was a problem submitting your form. Please try calling us.");
-        setStatus('idle');
+        setStatus('error');
+        // Reset error after a few seconds
+        setTimeout(() => {
+            setStatus('idle');
+        }, 5000);
       }
     } catch (error) {
       console.error("Submission error:", error);
-      alert("There was a problem submitting your form. Please try calling us.");
-      setStatus('idle');
+      setStatus('error');
+      setTimeout(() => {
+        setStatus('idle');
+      }, 5000);
     }
   };
 
@@ -103,7 +108,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
                     placeholder="Your Name"
                     required
                     aria-required="true"
-                    disabled={status !== 'idle'}
+                    disabled={status === 'submitting'}
                  />
                </div>
                <div>
@@ -118,7 +123,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
                     placeholder="(555) 555-5555"
                     required
                     aria-required="true"
-                    disabled={status !== 'idle'}
+                    disabled={status === 'submitting'}
                  />
                </div>
                <div>
@@ -133,15 +138,17 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
                     placeholder="How can we help?"
                     required
                     aria-required="true"
-                    disabled={status !== 'idle'}
+                    disabled={status === 'submitting'}
                  ></textarea>
                </div>
                <button 
                  type="submit" 
-                 disabled={status !== 'idle'}
+                 disabled={status === 'submitting'}
                  className={`w-full font-bold py-3 px-4 rounded-md transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-red shadow-md flex justify-center items-center ${
                    status === 'success' 
-                    ? 'bg-green-600 text-white cursor-default' 
+                    ? 'bg-green-600 text-white cursor-default'
+                    : status === 'error'
+                    ? 'bg-red-600 text-white' 
                     : 'bg-brand-red text-white hover:bg-brand-dark hover:shadow-lg hover:-translate-y-0.5'
                  } disabled:opacity-80 disabled:cursor-not-allowed`}
                  aria-label="Submit callback request"
@@ -156,6 +163,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
                      <CheckCircle className="w-5 h-5 mr-2" />
                      Request Sent!
                    </>
+                 ) : status === 'error' ? (
+                   <>
+                     <AlertCircle className="w-5 h-5 mr-2" />
+                     Error - Try Again
+                   </>
                  ) : (
                    'Request Callback'
                  )}
@@ -163,6 +175,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ prefilledMessage }) => {
                {status === 'success' && (
                  <p className="text-green-600 text-center text-sm font-medium mt-2">
                    Thanks! Raami or the team will be in touch shortly.
+                 </p>
+               )}
+               {status === 'error' && (
+                 <p className="text-red-600 text-center text-sm font-medium mt-2">
+                   Something went wrong. Please call us directly at (905) 555-0123.
                  </p>
                )}
              </form>
