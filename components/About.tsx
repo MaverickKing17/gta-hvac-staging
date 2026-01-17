@@ -43,7 +43,7 @@ const About: React.FC = () => {
           <div className="mt-10 lg:mt-0 relative order-1 lg:order-2">
              <div className="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
                 <img 
-                  src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop" 
+                  src="https://i.ibb.co/Y4WfcM6Z/gpt-image-1-5-b-Replace-the-current.png" 
                   alt="Raami, the Furnace King owner, inspecting a heating unit" 
                   className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-700"
                 />

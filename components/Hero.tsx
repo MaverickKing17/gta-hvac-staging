@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                <img
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
-                  src="https://i.ibb.co/spG2tjYD/gemini-3-pro-image-preview-b-Replace-the-current.png"
+                  src="https://i.ibb.co/DPKG8tMG/gpt-image-1-5-b-A-professional-high.png"
                   alt="HVAC Technician working on furnace"
                 />
              </div>
