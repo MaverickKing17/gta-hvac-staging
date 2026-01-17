@@ -19,10 +19,10 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Services</h3>
             <ul className="mt-4 space-y-4">
-              <li><a href="#" className="text-base text-gray-300 hover:text-white">Furnace Repair</a></li>
-              <li><a href="#" className="text-base text-gray-300 hover:text-white">AC Installation</a></li>
-              <li><a href="#" className="text-base text-gray-300 hover:text-white">Maintenance Plans</a></li>
-              <li><a href="#" className="text-base text-gray-300 hover:text-white">Emergency Service</a></li>
+              <li><a href="#services" className="text-base text-gray-300 hover:text-white">Furnace Repair</a></li>
+              <li><a href="#services" className="text-base text-gray-300 hover:text-white">AC Installation</a></li>
+              <li><a href="#services" className="text-base text-gray-300 hover:text-white">Maintenance Plans</a></li>
+              <li><a href="#services" className="text-base text-gray-300 hover:text-white">Emergency Service</a></li>
             </ul>
           </div>
 
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
             <ul className="mt-4 space-y-4">
               <li><a href="#about" className="text-base text-gray-300 hover:text-white">About Raami</a></li>
               <li><a href="#testimonials" className="text-base text-gray-300 hover:text-white">Testimonials</a></li>
-              <li><a href="#" className="text-base text-gray-300 hover:text-white">Careers</a></li>
+              <li><a href="#contact" className="text-base text-gray-300 hover:text-white">Careers</a></li>
               <li><a href="#contact" className="text-base text-gray-300 hover:text-white">Contact</a></li>
             </ul>
           </div>
