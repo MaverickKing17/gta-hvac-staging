@@ -5,6 +5,7 @@ import Services from './components/Services';
 import AITroubleshooter from './components/AITroubleshooter';
 import ContactForm from './components/ContactForm';
 import About from './components/About';
+import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
@@ -30,6 +31,7 @@ const App: React.FC = () => {
         <Services />
         <AITroubleshooter onBookAppointment={handleBookAppointment} />
         <About />
+        <Testimonials />
         <ContactForm prefilledMessage={contactMessage} />
       </main>
       <Footer />
