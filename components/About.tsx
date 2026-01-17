@@ -41,7 +41,7 @@ const About: React.FC = () => {
           <div className="mt-10 lg:mt-0 relative">
              <div className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <img 
-                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                  src="https://i.ibb.co/GQ0Yqsyx/gpt-image-1-5-a-Replace-the-current.png" 
                   alt="HVAC Professional" 
                   className="object-cover w-full h-full"
                 />
