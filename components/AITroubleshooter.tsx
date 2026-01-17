@@ -1,9 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { diagnoseHVACIssue } from '../services/gemini';
 import { ChatMessage, DiagnosticStatus } from '../types';
-import { Bot, User, AlertTriangle, Send, Loader2 } from 'lucide-react';
+import { Bot, User, AlertTriangle, Send, Loader2, CalendarCheck } from 'lucide-react';
 
-const AITroubleshooter: React.FC = () => {
+interface AITroubleshooterProps {
+  onBookAppointment?: (diagnosis: string) => void;
+}
+
+const AITroubleshooter: React.FC<AITroubleshooterProps> = ({ onBookAppointment }) => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -84,16 +88,25 @@ const AITroubleshooter: React.FC = () => {
                       <Bot className="w-5 h-5 text-brand-red" />
                     )}
                   </div>
-                  <div>
+                  <div className="w-full">
                     <p className={`text-sm ${msg.role === 'user' ? 'text-white' : 'text-gray-700'}`}>
                       {msg.text}
                     </p>
                     {msg.role === 'model' && idx > 0 && !msg.isError && (
-                      <div className="mt-3 pt-3 border-t border-gray-100">
+                      <div className="mt-3 pt-3 border-t border-gray-100 flex flex-col gap-2">
                         <a href="tel:+19055550123" className="text-xs font-bold text-brand-red hover:underline flex items-center">
                           <AlertTriangle className="w-3 h-3 mr-1" />
-                          Call Raami to fix this: (905) 555-0123
+                          Call Raami immediately: (905) 555-0123
                         </a>
+                        {onBookAppointment && (
+                            <button 
+                                onClick={() => onBookAppointment(msg.text)}
+                                className="w-full text-xs font-bold text-white bg-brand-red hover:bg-brand-dark px-3 py-2 rounded-md flex items-center justify-center transition-colors shadow-sm"
+                            >
+                                <CalendarCheck className="w-3 h-3 mr-1.5" />
+                                Book Service based on this diagnosis
+                            </button>
+                        )}
                       </div>
                     )}
                   </div>
