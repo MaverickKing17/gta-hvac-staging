@@ -75,7 +75,7 @@ const AITroubleshooter: React.FC<AITroubleshooterProps> = ({ onBookAppointment }
                 className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`flex max-w-[80%] ${
+                  className={`flex max-w-[85%] ${
                     msg.role === 'user'
                       ? 'bg-brand-red text-white rounded-tr-none'
                       : 'bg-white text-gray-800 border border-gray-200 rounded-tl-none'
@@ -89,7 +89,7 @@ const AITroubleshooter: React.FC<AITroubleshooterProps> = ({ onBookAppointment }
                     )}
                   </div>
                   <div className="w-full">
-                    <p className={`text-sm ${msg.role === 'user' ? 'text-white' : 'text-gray-700'}`}>
+                    <p className={`text-sm ${msg.role === 'user' ? 'text-white' : 'text-gray-700'} whitespace-pre-wrap leading-relaxed`}>
                       {msg.text}
                     </p>
                     {msg.role === 'model' && idx > 0 && !msg.isError && (

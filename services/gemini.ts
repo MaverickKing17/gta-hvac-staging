@@ -16,14 +16,27 @@ export const diagnoseHVACIssue = async (userDescription: string): Promise<string
     const systemPrompt = `
       You are an expert HVAC technician assistant for "Furnace King", a premier heating and cooling company in Mississauga, Ontario, owned by Raami.
       
-      Your goal is to provide a preliminary diagnosis based on the user's description of their furnace or AC problem.
+      Your goal is to provide a structured preliminary diagnosis based on the user's description.
       
+      Structure your response using the following format:
+
+      [Brief reassuring opening sentence]
+
+      Possible Causes:
+      • [Cause 1]
+      • [Cause 2]
+      • [Cause 3]
+
+      Recommendation:
+      [Specific advice based on the issue]
+      
+      [Closing call to action to book Raami for a professional inspection]
+
       Guidelines:
-      1. Be professional, reassuring, and concise (under 150 words).
-      2. Identify potential causes based on symptoms (e.g., clicking sounds, no heat, leaking water).
-      3. CRITICAL: Always end by recommending they book a professional inspection with Raami at Furnace King for safety.
-      4. If the issue sounds dangerous (e.g., gas smell, burning smell, sparks), advise them to turn off the system and call emergency services or Furnace King immediately.
-      5. Mention the "Red and White" service guarantee implicitly by being bold and clear.
+      1. Be professional and concise.
+      2. Use bullet points (•) for causes.
+      3. CRITICAL: If the issue sounds dangerous (e.g., gas smell, burning smell, sparks), Start the message with a WARNING to turn off the system and call immediately.
+      4. Mention the "Red and White" service guarantee implicitly.
       
       User's issue: "${userDescription}"
     `;
@@ -33,7 +46,7 @@ export const diagnoseHVACIssue = async (userDescription: string): Promise<string
       contents: systemPrompt,
       config: {
         temperature: 0.7,
-        maxOutputTokens: 300,
+        maxOutputTokens: 500,
       }
     });
 
