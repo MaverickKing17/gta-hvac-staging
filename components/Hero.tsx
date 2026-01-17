@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle, ShieldCheck } from 'lucide-react';
+import { ArrowRight, CheckCircle, ShieldCheck, Award } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
@@ -27,7 +27,16 @@ const Hero: React.FC = () => {
                 <span className="block xl:inline">Don't Get Left In</span>{' '}
                 <span className="block text-brand-red xl:inline">The Cold.</span>
               </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+
+              {/* Satisfaction Guarantee Banner */}
+              <div className="mt-6 flex sm:justify-center lg:justify-start">
+                <div className="inline-flex items-center px-5 py-2 rounded-lg bg-white border-2 border-brand-red shadow-sm transform transition hover:-translate-y-0.5">
+                   <Award className="w-6 h-6 text-brand-red mr-3" />
+                   <span className="font-extrabold text-gray-900 text-lg">100% Satisfaction Guarantee</span>
+                </div>
+              </div>
+
+              <p className="mt-5 text-base text-gray-500 sm:mt-8 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-8 md:text-xl lg:mx-0">
                 Mississauga's most trusted heating and cooling experts. Owned and operated by Raami. We fix it right, or we make it right. Fast, reliable, and fairly priced.
               </p>
               
